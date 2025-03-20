@@ -1,0 +1,265 @@
+{
+	"info": {
+		"_postman_id": "dfaf2d31-eee2-4e7a-b4ba-b9b1e59e9314",
+		"name": "store",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18472796",
+		"_collection_link": "https://winter-shuttle-733499.postman.co/workspace/ITSON~3c510956-9f62-413d-9c1b-b1d3e6b15edc/collection/18472796-dfaf2d31-eee2-4e7a-b4ba-b9b1e59e9314?action=share&source=collection_link&creator=18472796"
+	},
+	"item": [
+		{
+			"name": "Productos",
+			"item": [
+				{
+					"name": "ObtenerProductos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/productos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerProducto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/productos/65e948a2f35cb912dbc26814",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"productos",
+								"65e948a2f35cb912dbc26814"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AgregarProducto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"Sabritas\",\r\n    \"precio\":19.90,\r\n    \"cantidad\": 50\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/productos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActualizarProducto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\":\"CocaCola Actualizado\",\r\n    \"precio\":19.90,\r\n    \"cantidad\": 50\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/productos/65e948a2f35cb912dbc26814",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"productos",
+								"65e948a2f35cb912dbc26814"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EliminarProducto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/productos/65d77b49b3ee54c32f5e83b4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"productos",
+								"65d77b49b3ee54c32f5e83b4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Venta",
+			"item": [
+				{
+					"name": "ObtenerVentas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/ventas/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"ventas",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ObtenerVenta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/ventas/65e9663294a5036dcc2af82a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"ventas",
+								"65e9663294a5036dcc2af82a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EliminarVenta",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/ventas/65e966bd94a5036dcc2af83f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"ventas",
+								"65e966bd94a5036dcc2af83f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AgregarVenta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"total\": 138.50,\r\n    \"iva\": 19.10,\r\n    \"productosventa\": [\r\n        {\r\n            \"idProducto\":\"65e948a2f35cb912dbc26814\",\r\n            \"descripcion\":\"CocaCola \",\r\n            \"precioVenta\":19.90,\r\n            \"conatidad\":3,\r\n            \"subtotal\": 59.70\r\n        },\r\n        {\r\n            \"idProducto\":\"65e94ca8689424c0c655409a\",\r\n            \"descripcion\":\"Galletas\",\r\n            \"precioVenta\":19.90,\r\n            \"conatidad\":3,\r\n            \"subtotal\": 59.70\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/ventas/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"ventas",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActualizarVenta",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"total\": 200.50,\r\n    \"iva\": 19.10,\r\n    \"productosventa\": [\r\n        {\r\n            \"idProducto\":\"65e948a2f35cb912dbc26814\",\r\n            \"descripcion\":\"CocaCola \",\r\n            \"precioVenta\":19.90,\r\n            \"conatidad\":3,\r\n            \"subtotal\": 59.70\r\n        },\r\n        {\r\n            \"idProducto\":\"65e94ca8689424c0c655409a\",\r\n            \"descripcion\":\"Galletas\",\r\n            \"precioVenta\":19.90,\r\n            \"conatidad\":3,\r\n            \"subtotal\": 59.70\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/ventas/65e9663294a5036dcc2af82a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"ventas",
+								"65e9663294a5036dcc2af82a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

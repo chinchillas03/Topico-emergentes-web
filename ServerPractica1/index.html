@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector de Autos</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const marcasSelect = document.getElementById("marcas");
+            const modelosSelect = document.getElementById("modelos");
+            const colores = {
+                Toyota: "#FF5733",
+                Honda: "#33FF57",
+                Ford: "#3357FF",
+                Chevrolet: "#FFD700",
+                Nissan: "#FF33A1",
+                BMW: "#A133FF",
+                Audi: "#FF8C33",
+                "Mercedes-Benz": "#8C33FF",
+                Hyundai: "#33FFF5",
+                Kia: "#FF3333"
+            };
+
+            fetch("http://localhost:8888/marcas")
+                .then(response => response.text())
+                .then(data => {
+                    const marcas = data.split("\n").map(m => m.trim()).filter(m => m);
+                    marcas.forEach(marca => {
+                        const option = document.createElement("option");
+                        option.value = marca;
+                        option.textContent = marca;
+                        marcasSelect.appendChild(option);
+                    });
+                });
+
+            marcasSelect.addEventListener("change", function () {
+                const marcaSeleccionada = marcasSelect.value;
+                marcasSelect.style.backgroundColor = colores[marcaSeleccionada] || "white";
+                modelosSelect.innerHTML = '<option value="">Seleccione un modelo</option>';
+                
+                if (!marcaSeleccionada) return;
+                
+                fetch(`http://localhost:8888/modelos/${marcaSeleccionada}`)
+                    .then(response => response.text())
+                    .then(data => {
+                        const modelos = data.split("\n").map(m => m.trim()).filter(m => m);
+                        modelos.forEach(modelo => {
+                            const option = document.createElement("option");
+                            option.value = modelo;
+                            option.textContent = modelo.replace(`${marcaSeleccionada} - `, "").trim();
+                            modelosSelect.appendChild(option);
+                        });
+                    });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h2>Seleccione una Marca</h2>
+    <select id="marcas">
+        <option value="">Seleccione una marca</option>
+    </select>
+    <h2>Seleccione un Modelo</h2>
+    <select id="modelos">
+        <option value="">Seleccione un modelo</option>
+    </select>
+</body>
+</html>
